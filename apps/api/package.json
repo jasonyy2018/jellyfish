@@ -1,0 +1,25 @@
+{
+  "name": "@jellyfish/api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "next build",
+    "start": "tsx server.ts"
+  },
+  "dependencies": {
+    "@jellyfish/db": "file:../../packages/db",
+    "@jellyfish/types": "file:../../packages/types",
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3",
+    "next": "^16.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "socket.io": "^4.8.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "tsx": "^4.20.6"
+  }
+}

@@ -1,26 +1,36 @@
 {
   "name": "jellyfish",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "npm run dev -w apps/dashboard",
+    "dev:web": "npm run dev -w apps/web",
+    "dev:dashboard": "npm run dev -w apps/dashboard",
+    "dev:api": "npm run dev -w apps/api",
+    "build": "npm run build -w apps/web && npm run build -w apps/dashboard && npm run build -w apps/api",
+    "start:web": "npm run start -w apps/web",
+    "start:dashboard": "npm run start -w apps/dashboard",
+    "start:api": "npm run start -w apps/api",
+    "prisma:generate": "npm run prisma:generate -w packages/db",
+    "prisma:migrate": "npm run prisma:migrate -w packages/db",
+    "prisma:studio": "npm run prisma:studio -w packages/db",
+    "agent:dev": "npm run dev -w services/agent",
+    "maintenance": "powershell -ExecutionPolicy Bypass -File ./scripts/run-maintenance.ps1",
+    "cleanup:data": "tsx scripts/cleanup-data.ts",
+    "test": "vitest run"
   },
   "dependencies": {
-    "next": "16.2.1",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "typescript": "^6.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@types/node": "^25.5.0",
+    "tsx": "^4.20.6",
+    "vitest": "^3.2.4"
   }
 }
